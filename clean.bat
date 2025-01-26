@@ -16,7 +16,7 @@ del thumbcache_*.db
 
 :: net.exe stop sysmain
 
-timeout 150
+:: timeout 150
 
 cd "C:\Ea\bat booster"
 clean2.bat
