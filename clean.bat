@@ -1,4 +1,17 @@
-taskkill /f /im nvim.exe
+@echo off
+setlocal enabledelayedexpansion
+
+tasklist /fi "imagename eq nvim.exe" | find /i "nvim.exe" >nul
+if %errorlevel%==0 (
+    echo Neovim sedang aktif.
+    set /p jawab="Apakah ingin mematikan Neovim? (y/n): "
+    if /i "!jawab!"=="y" (
+        taskkill /f /im nvim.exe
+    ) else (
+        echo Proses dibatalkan.
+        exit /b
+    )
+)
 
 cd /d C:\Windows\Temp
 del /F /Q *.*
@@ -22,3 +35,5 @@ del thumbcache_*.db
 
 cd "C:\Ea\bat booster"
 clean2.bat
+
+endlocal
