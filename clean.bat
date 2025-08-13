@@ -1,3 +1,5 @@
+taskkill /f /im nvim.exe
+
 cd /d C:\Windows\Temp
 del /F /Q *.*
 for /D %%d in (*) do @rd /S /Q "%%d"
